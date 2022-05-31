@@ -5,9 +5,9 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "tsc",
+    "build": "tsc && sequelize-cli db:migrate",
     "start": "NODE_ENV=production node dist/server.js",
-    "heroku-prebuild": "npm install && sequelize-cli db:migrate",
+    "heroku-prebuild": "npm install",
     "heroku-cleanup": "npm prune --prod"
   },
   "keywords": [],
