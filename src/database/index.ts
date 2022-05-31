@@ -8,6 +8,13 @@ export function connect() {
     const sequelize = new Sequelize(databaseUrl, {
         define: {
             underscored: true
+        },
+        ssl: process.env.NODE_ENV === 'production',
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
         }
     })
 
